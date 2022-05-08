@@ -1,0 +1,53 @@
+<article>
+    <p *ngIf="title">{{title}}</p>
+    <div>
+      <div>
+        <ul>
+          <span>AVAILABLES</span>
+          <input *ngIf="showFilterInput" type="text" placeholder="Filter..." (keyup)="filterInput(get('input'), $event)">
+          <li *ngFor="let inputItem of get('input'); trackBy: trackByIndex;" (click)="toggle('input', inputItem[0])" [class.selected]="inputItem[1].Selected" [title]="getCompleteDisplay(inputItem[1], display)">
+            <span *ngFor="let dis of display; let last = last" [title]="getCompleteDisplay(inputItem[1], display)" [class.hide]="!inputItem[1].Visible">{{ inputItem[1].Data[dis] + (last ? '' : (displaySeparator ? displaySeparator : '') ) }}</span>
+          </li>
+        </ul>
+        <div>
+          <div>
+            <button (click)="all('input')">
+              <span>ALL</span>
+            </button>
+            <button (click)="none('input')">
+              <span>NONE</span>
+            </button>
+          </div>
+          <button (click)="add()">
+            <span>ADD</span>
+          </button>
+        </div>
+      </div>
+      <figure>
+        <i class="fas fa-arrow-right" (click)="add()"></i>
+        <i class="fas fa-arrow-left" (click)="remove()"></i>
+      </figure>
+      <div>
+        <ul>
+          <span>SELECTED</span>
+          <input *ngIf="showFilterOutput" type="text" placeholder="Filter..." (keyup)="filterOutput(get('output'), $event)">
+          <li *ngFor="let outputItem of get('output'); trackBy: trackByIndex" (click)="toggle('output', outputItem[0])" [class.selected]="outputItem[1].Selected" [title]="getCompleteDisplay(outputItem[1], display)">
+            <span *ngFor="let dis of display; let last = last" [title]="getCompleteDisplay(outputItem[1], display)" [class.hide]="!outputItem[1].Visible" >{{ outputItem[1].Data[dis] + (last ? '' : (displaySeparator ? displaySeparator : ' ') ) }}</span>
+          </li>
+        </ul>
+        <div>
+          <div>
+            <button (click)="all('output')">
+              <span>ALL</span>
+            </button>
+            <button (click)="none('output')">
+              <span>NONE</span>
+            </button>
+          </div>
+          <button (click)="remove()">
+            <span>ADD</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </article>

@@ -105,6 +105,37 @@
           }
         }
       }
+    },
+    "@suarsan/ngx-duallistbox": {
+      "projectType": "library",
+      "root": "projects/suarsan/ngx-duallistbox",
+      "sourceRoot": "projects/suarsan/ngx-duallistbox/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/suarsan/ngx-duallistbox/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/suarsan/ngx-duallistbox/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/suarsan/ngx-duallistbox/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/suarsan/ngx-duallistbox/src/test.ts",
+            "tsConfig": "projects/suarsan/ngx-duallistbox/tsconfig.spec.json",
+            "karmaConfig": "projects/suarsan/ngx-duallistbox/karma.conf.js"
+          }
+        }
+      }
     }
   },
   "defaultProject": "ngx-duallistbox"

@@ -2,6 +2,12 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "@suarsan/ngx-duallistbox": [
+        "dist/suarsan/ngx-duallistbox/suarsan-ngx-duallistbox",
+        "dist/suarsan/ngx-duallistbox"
+      ]
+    },
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
