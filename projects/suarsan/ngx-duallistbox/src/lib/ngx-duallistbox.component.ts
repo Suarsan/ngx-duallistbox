@@ -168,13 +168,10 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
   }
 
   public filterInput(items: any, e: any) {
+    this.filterInputKey = e.target.value;
     const regExp1 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
     const regExp2 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
-    this.filterInputKey = e.target.value;
     const regExp = new RegExp(regExp1 + this.filterInputKey + regExp2, 'i');
-    if (!this.filterInputKey) {
-      this.filterInputKey = e.target.value;
-    }
     if (items) {
       items.forEach((i: any) => {
         if (this.filterInputKeys) {
@@ -192,13 +189,10 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
   }
 
   public filterOutput(items: any, e: any) {
+    this.filterOutputKey = e.target.value;
     const regExp1 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
     const regExp2 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
-    this.filterOutputKey = e.target.value;
     const regExp = new RegExp(regExp1 + this.filterOutputKey + regExp2, 'i');
-    if (!this.filterOutputKey) {
-      this.filterOutputKey = e.target.value;
-    }
     if (items) {
       items.forEach((i: any) => {
         if (this.filterOutputKeys) { 
