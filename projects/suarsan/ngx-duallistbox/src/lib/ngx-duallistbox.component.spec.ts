@@ -177,7 +177,6 @@ describe('NgxDuallistboxComponent', () => {
   it('should show complete display when one item display', () => {
     component.inData = oneItemArray;
     component.display = ['name', 'age'];
-    component.displaySeparator = ' - ';
     component.inDataProcess(component.inData);
     fixture.detectChanges();
     expect(
