@@ -70,7 +70,6 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
   ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // this.init();
     this.inDataProcess(this.inData);
     this.outDataProcess(this.outData);
   }
@@ -94,15 +93,6 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
       this.output.clear();
     }
   }
-
-  // public init() {
-  //   if (this.input && this.output) {
-  //     for (const o of this.output) {
-  //       this.input.delete(o[0]);
-  //       this.cd.detectChanges();
-  //     }
-  //   }
-  // }
 
   public get(map: any) : any[] {
     return Array.from(eval('this.' + map).entries());
