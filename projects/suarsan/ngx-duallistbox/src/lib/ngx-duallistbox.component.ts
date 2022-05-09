@@ -158,15 +158,12 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
 
   public getCompleteDisplay(item: any, display: any) {
     let completeDisplay = '';
-    if (item && display) {
-      display.forEach((d: any, i: any) => {
-        completeDisplay += item.Data[d];
-        if (i < (display.length - 1)) {
-          completeDisplay += this.displaySeparator ? this.displaySeparator : ' - ';
-        }
-      });
-      return completeDisplay;
-    }
+    display.forEach((d: any, i: any) => {
+      completeDisplay += item.Data[d];
+      if (i < (display.length - 1)) {
+        completeDisplay += this.displaySeparator ? this.displaySeparator : ' - ';
+      }
+    });
     return completeDisplay;
   }
 
