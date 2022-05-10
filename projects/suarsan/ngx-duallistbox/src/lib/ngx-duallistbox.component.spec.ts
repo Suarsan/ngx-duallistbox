@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, tick } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DualListBoxItem, NgxDuallistboxComponent } from './ngx-duallistbox.component';
 
@@ -177,7 +177,6 @@ describe('NgxDuallistboxComponent', () => {
   it('should show complete display when one item display', () => {
     component.inData = oneItemArray;
     component.display = ['name', 'age'];
-    component.displaySeparator = ' - ';
     component.inDataProcess(component.inData);
     fixture.detectChanges();
     expect(
@@ -186,6 +185,53 @@ describe('NgxDuallistboxComponent', () => {
         .map(fd => fd.nativeElement.innerText)
         .join('')
     ).toBe('Name 1 - 18');
+  })
+
+  it('should show complete display when none item display', () => {
+    component.inData = [];
+    component.display = ['name', 'age'];
+    component.displaySeparator = ' - ';
+    component.inDataProcess(component.inData);
+    fixture.detectChanges();
+    expect(
+      fixture.debugElement.queryAll(
+        By.css('article > div > div:nth-of-type(1) > ul > li'))
+        .map(fd => fd.nativeElement.innerText)
+        .join('')
+    ).toBe('');
+  })
+
+  it('should availables filter return one item when filter by name = "Name 1"', () => {
+    component.inData = fiveItemsArray;
+    component.showFilterInput = true;
+    component.display = ['name', 'age'];
+    component.displaySeparator = ' - ';
+    component.filterInputKeys = ['name', 'age'];
+    component.inDataProcess(component.inData);
+    fixture.detectChanges();
+    const input = fixture.debugElement.query(
+      By.css('article > div > div:nth-of-type(1) > ul > input')).nativeElement;
+    input.value = 'Name 1';
+    const e = new KeyboardEvent('keyup', {'bubbles':true, 'cancelable':true});
+    input.dispatchEvent(e);
+    expect(component.get('input').filter(i => i[1].Visible).length).toBe(1);
+    
+  })
+  it('should selected filter return one item when filter by name = "Name 1"', () => {
+    component.outData = fiveItemsArray;
+    component.showFilterOutput = true;
+    component.display = ['name', 'age'];
+    component.displaySeparator = ' - ';
+    component.filterOutputKeys = ['name', 'age'];
+    component.outDataProcess(component.outData);
+    fixture.detectChanges();
+    const input = fixture.debugElement.query(
+      By.css('article > div > div:nth-of-type(2) > ul > input')).nativeElement;
+    input.value = 'Name 1';
+    const e = new KeyboardEvent('keyup', {'bubbles':true, 'cancelable':true});
+    input.dispatchEvent(e);
+    expect(component.get('output').filter(i => i[1].Visible).length).toBe(1);
+    
   })
 
   

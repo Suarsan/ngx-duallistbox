@@ -70,7 +70,6 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
   ngOnInit() { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    // this.init();
     this.inDataProcess(this.inData);
     this.outDataProcess(this.outData);
   }
@@ -94,15 +93,6 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
       this.output.clear();
     }
   }
-
-  // public init() {
-  //   if (this.input && this.output) {
-  //     for (const o of this.output) {
-  //       this.input.delete(o[0]);
-  //       this.cd.detectChanges();
-  //     }
-  //   }
-  // }
 
   public get(map: any) : any[] {
     return Array.from(eval('this.' + map).entries());
@@ -158,26 +148,20 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
 
   public getCompleteDisplay(item: any, display: any) {
     let completeDisplay = '';
-    if (item && display) {
-      display.forEach((d: any, i: any) => {
-        completeDisplay += item.Data[d];
-        if (i < (display.length - 1)) {
-          completeDisplay += this.displaySeparator ? this.displaySeparator : ' - ';
-        }
-      });
-      return completeDisplay;
-    }
+    display.forEach((d: any, i: any) => {
+      completeDisplay += item.Data[d];
+      if (i < (display.length - 1)) {
+        completeDisplay += this.displaySeparator ? this.displaySeparator : ' - ';
+      }
+    });
     return completeDisplay;
   }
 
   public filterInput(items: any, e: any) {
+    this.filterInputKey = e.target.value;
     const regExp1 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
     const regExp2 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
-    this.filterInputKey = e.target.value;
     const regExp = new RegExp(regExp1 + this.filterInputKey + regExp2, 'i');
-    if (!this.filterInputKey) {
-      this.filterInputKey = e.target.value;
-    }
     if (items) {
       items.forEach((i: any) => {
         if (this.filterInputKeys) {
@@ -195,13 +179,10 @@ export class NgxDuallistboxComponent implements OnInit, OnChanges {
   }
 
   public filterOutput(items: any, e: any) {
+    this.filterOutputKey = e.target.value;
     const regExp1 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
     const regExp2 = '[a-zA-Z0-9?!"·$%&/()=?¿|@#~€¬^*¨Ç;:_]*';
-    this.filterOutputKey = e.target.value;
     const regExp = new RegExp(regExp1 + this.filterOutputKey + regExp2, 'i');
-    if (!this.filterOutputKey) {
-      this.filterOutputKey = e.target.value;
-    }
     if (items) {
       items.forEach((i: any) => {
         if (this.filterOutputKeys) { 
