@@ -1,66 +1,110 @@
 :host {
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
     > article {
         display: flex;
         flex-direction: column;
+        flex-grow: 1;
         > p {
+            font-size: 20px;
             font-weight: 500;
-            padding: 25px 5px 0px 20px;
+            color: #2cc4d2;
+            margin: 0 0 15px 15px;
         }
         > div {
             display: flex;
             flex-direction: row;
             width: 100%;
+            height: 100%;
+            border: 2px solid rgba(#2cc4d2, 1);
+            background-color: rgba(white, 1);
+            border-radius: 10px;
+            box-sizing: border-box;
             > div {
                 display: flex;
                 flex-direction: column;
-                width: 45%;
-                border-radius: 10px;
-                background-color: rgba(white, 1);
-                border: 1px solid rgba(black, 1);
-                margin: 15px;
+                justify-content: space-between;
+                width: 50%;
+                &:nth-of-type(1) {
+                    border-right: 1px dashed rgba(#2cc4d2, 1);
+                }
                 > ul {
-                    height: 200px;
+                    min-height: 200px;
                     margin: 0;
-                    padding: 0px;
-                    overflow: hidden;
+                    padding: 0;
+                    overflow-x: hidden;
                     overflow-y: auto;
                     > span {
                         display: block;
                         font-size: 14px;
-                        padding: 0;
-                        margin: 10px 0px 5px 15px;
-                        color: rgba(black, 1);
+                        font-weight: 600;
+                        padding: 0 15px;
+                        margin: 10px 0px;
+                        color: rgba(#2cc4d2, 1);
+                        text-align: center;
+                        &.border-bottom {
+                            padding: 5px 15px 15px 15px;
+                            margin: 10px 0px;
+                            border-bottom: 1px solid rgba(#2cc4d2, 1);
+                        }
                     }
-                    > input {
-                        border: 1px solid rgba(black, 1);
-                        outline: 0;
-                        background-color: rgba(white, 1);
-                        margin: 5px 5px 5px 10px;
-                        padding: 5px 10px;
-                        font-size: 12px;
-                        font-style: italic;
-                        border-radius: 30px;
+                    > div.filter {
+                        background-color: rgba(#2cc4d2, .05);
+                        margin: 0 0 10px 0;
+                        > div {
+                            position: relative;
+                            width: min-content;
+                            margin: 0 auto;
+                            > svg {
+                                position: absolute;
+                                top: 50%;
+                                left: 20px;
+                                transform: translate(-50%, -50%);
+                                width: 10px;
+                                height: 10px;
+                                fill: #2cc4d2;
+                            }
+                            > input {
+                                width: auto;
+                                border: 0;
+                                outline: 0;
+                                background-color: rgba(#ffffff, 1);
+                                color: #2cc4d2;
+                                margin: 5px;
+                                padding: 5px 5px 5px 25px;
+                                font-size: 12px;
+                                font-style: italic;
+                                border-radius: 24px;
+                                &::placeholder {
+                                    color: #2cc4d2;
+                                }
+                            }
+                        }
                     }
                     > li {
                         list-style: none;
-                        padding: 0 5px 0 15px;
+                        padding: 2px 15px 0 15px;
                         background-color: rgba(white, 1);
                         text-overflow: ellipsis;
                         white-space: nowrap;
                         > span {
                             font-size: 15px;
-                            &.hide {
-                                display: none;
-                            }
+                            color: #2cc4d2;
+                            user-select: none;
                         }
                         &.hide {
-                            visibility: hidden;
+                            padding: 0;
+                            > span {
+                                display: none;
+                                padding: 0;
+                            }
                         }
                         &.selected {
-                            color: rgba(white, 1);
-                            background-color: rgba(black, 1);
+                            background-color: rgba(#2cc4d2, 1);
+                            > span {
+                                color: rgba(#ffffff, 1);
+                            }
                         }
                         &:hover {
                             cursor: pointer;
@@ -70,32 +114,44 @@
                 > div {
                     display: flex;
                     flex-direction: column;
+                    margin: 10px 0 0 0;
                     > div {
                         display: flex;
                         flex-direction: row;
                         border-radius: 0 ;
                         > button {
                             flex-grow: 1;
+                            padding: 5px;
                             border: 0;
-                            border-bottom: 1px solid rgba(black, 1);
-                            border-top: 1px solid rgba(black, 1);
-                            border-radius: 0;
-                            background-color: rgba(white, 1);
+                            border-bottom: 1px solid rgba(#2cc4d2, 1);
+                            border-top: 1px solid rgba(#2cc4d2, 1);
                             > span {
-                                font-size: 12px;
+                                font-size: 10px;
                                 font-weight: 300;
                             }
                             &:nth-of-type(1) {
-                                border-right: 1px solid rgba(black, 1);
+                                border-right: 1px solid rgba(#2cc4d2, 1);
                             }
                         }   
                     }
                     > button {
+                        vertical-align: middle;
                         padding: 0;
                         border: 0;
-                        border-radius: 0 0 10px 10px;
-                        background-color: rgba(white, 1);
-                        vertical-align: middle;
+                        padding: 8px;
+                        > span {
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                    }
+                    button {
+                        color: rgba(#2cc4d2, 1);
+                        background-color: rgba(#2cc4d2, .05);
+                        &:hover {
+                            cursor: pointer;
+                            background-color: rgba(#2cc4d2, 1);
+                            color: rgba(#ffffff, 1);
+                        }
                     }
                 }
             }
