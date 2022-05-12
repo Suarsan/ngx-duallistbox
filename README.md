@@ -1,27 +1,98 @@
 # NgxDuallistbox
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+[![npm version](https://badge.fury.io/js/@suarsan%2Fngx-duallistbox.svg)](https://badge.fury.io/js/@suarsan%2Fngx-duallistbox)
 
-## Development server
+A full featured and customizable dual list box selector for Angular.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+![alt text](https://github.com/Suarsan/ngx-duallistbox/raw/master/projects/suarsan/ngx-duallistbox/demo.png)
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Demo
 
-## Build
+Try full demo  at **[ngx-duallistbox](www.javiersuarezsanchez.com/projects/ngx-duallistbox)**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Usage
 
-## Running unit tests
+#### Installation
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Install via npm
 
-## Running end-to-end tests
+    npm install @suarsan/duallistbox
+    
+#### Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Import ``NgxDuallistboxModule`` in your app.module.ts
 
-## Further help
+    import { NgModule } from '@angular/core';
+    import { BrowserModule } from '@angular/platform-browser';
+    import { AppComponent } from './app.component';
+    
+    import { NgxDuallistboxModule } from 'projects/suarsan/ngx-duallistbox/src/public-api';
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+    @NgModule({
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        NgxDuallistboxModule
+    ],
+    providers: [],
+    bootstrap: [AppComponent]
+    })
+    export class AppModule { }
+
+## Documentation
+
+#### Inputs
+
+| Input | Type | Default | Required | Description |
+| ----- | ---- | ------  | -------- | ----------- |
+| title | `string\|undefined` | - | false | Show title |
+| inData | `Array<Object>` | - | true |  Set available data list |
+| outData | `Array<Object>` | - | true |  Set selected data list |
+| inputId | `string` | 'id' | false | Select available data items id attribute |
+| outputId | `string` | 'id' | false | Select selected data items id attribute |
+| display | `Array<string>` | - | true | Select item attributes to show |
+| displaySeparator | `string` | ' - ' | false | Select separator between  item attributes. |
+| showFilterInput | `boolean` | false | false | Show filter at available data list |
+| showFilterOutput | `boolean` | false | false | Show filter at selected data list |
+| filterInputKeys | `Array<string>` | -  | false | Select item attributes to filter at available data list |
+| filterOutputKeys | `Array<string>` | -  | false | Select item attributes to filter at selected data list |
+
+#### Example
+
+    <ngx-duallistbox
+        [title]="'@suarsan/duallistbox'"
+        [inData]="inData" 
+        [outData]="outData" 
+        [inputId]="'identifier'" 
+        [outputId]="'identifier" 
+        [display]="['name', 'age']"
+        [displaySeparator]="' · '"
+        [showFilterInput]="true" 
+        [showFilterOutput]="true" 
+        [filterInputKeys]="['name']" 
+        [filterOutputKeys]="['name']"
+    ></ngx-duallistbox>
+
+
+---
+
+## Creator
+
+**[Javier Suárez Sánchez](https://javiersuarezsanchez.com)**
+
+
+
+
+---
+
+### Keywords
+
+`angular` `ngx` `javascript` `duallistbox` `dual` `list` `box` `rich` `customizable`
+
+---
+
+
+

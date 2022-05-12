@@ -1,6 +1,16 @@
 {
   "name": "@suarsan/ngx-duallistbox",
   "version": "0.0.1",
+  "keywords": ["angular", "ngx", "suarsan", "duallistbox", "dual list box", "dual", "list", "box", "listbox", "double selector"],
+  "author": {
+    "name": "Javier Suárez Sánchez",
+    "email": "javiersuarsan@gmail.com",
+    "url": "https://www.javiersuarezsanchez.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Suarsan/ngx-duallistbox"
+  },
   "peerDependencies": {
     "@angular/common": "^13.3.0",
     "@angular/core": "^13.3.0"
