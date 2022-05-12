@@ -179,6 +179,8 @@ describe('NgxDuallistboxComponent', () => {
     component.display = ['name', 'age'];
     component.inDataProcess(component.inData);
     fixture.detectChanges();
+    console.info(fixture.debugElement.queryAll(
+      By.css('article > div > div:nth-of-type(1) > ul > li')));
     expect(
       fixture.debugElement.queryAll(
         By.css('article > div > div:nth-of-type(1) > ul > li'))
@@ -195,7 +197,7 @@ describe('NgxDuallistboxComponent', () => {
     fixture.detectChanges();
     expect(
       fixture.debugElement.queryAll(
-        By.css('article > div > div:nth-of-type(1) > ul > li'))
+        By.css('article > div > div:nth-of-type(1) > ul > div.filter > li'))
         .map(fd => fd.nativeElement.innerText)
         .join('')
     ).toBe('');
@@ -210,7 +212,7 @@ describe('NgxDuallistboxComponent', () => {
     component.inDataProcess(component.inData);
     fixture.detectChanges();
     const input = fixture.debugElement.query(
-      By.css('article > div > div:nth-of-type(1) > ul > input')).nativeElement;
+      By.css('article > div > div:nth-of-type(1) > ul > div.filter > div > input')).nativeElement;
     input.value = 'Name 1';
     const e = new KeyboardEvent('keyup', {'bubbles':true, 'cancelable':true});
     input.dispatchEvent(e);
@@ -226,7 +228,7 @@ describe('NgxDuallistboxComponent', () => {
     component.outDataProcess(component.outData);
     fixture.detectChanges();
     const input = fixture.debugElement.query(
-      By.css('article > div > div:nth-of-type(2) > ul > input')).nativeElement;
+      By.css('article > div > div:nth-of-type(2) > ul > div.filter > div > input')).nativeElement;
     input.value = 'Name 1';
     const e = new KeyboardEvent('keyup', {'bubbles':true, 'cancelable':true});
     input.dispatchEvent(e);
