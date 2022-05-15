@@ -27,7 +27,7 @@ Import ``NgxDuallistboxModule`` in your app.module.ts
     import { BrowserModule } from '@angular/platform-browser';
     import { AppComponent } from './app.component';
     
-    import { NgxDuallistboxModule } from 'projects/suarsan/ngx-duallistbox/src/public-api';
+    import { NgxDuallistboxModule } from '@suarsan/ngx-duallistbox';
 
     @NgModule({
     declarations: [
@@ -66,8 +66,8 @@ Import ``NgxDuallistboxModule`` in your app.module.ts
         [title]="'@suarsan/duallistbox'"
         [inData]="inData" 
         [outData]="outData" 
-        [inputId]="'identifier'" 
-        [outputId]="'identifier" 
+        [inputId]="'id'" 
+        [outputId]="'id'" 
         [display]="['name', 'age']"
         [displaySeparator]="' · '"
         [showFilterInput]="true" 
