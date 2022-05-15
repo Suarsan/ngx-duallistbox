@@ -1,7 +1,18 @@
 {
   "name": "@suarsan/ngx-duallistbox",
-  "version": "0.0.2",
-  "keywords": ["angular", "ngx", "suarsan", "duallistbox", "dual list box", "dual", "list", "box", "listbox", "double selector"],
+  "version": "0.0.3",
+  "keywords": [
+    "angular",
+    "ngx",
+    "suarsan",
+    "duallistbox",
+    "dual list box",
+    "dual",
+    "list",
+    "box",
+    "listbox",
+    "double selector"
+  ],
   "author": {
     "name": "Javier Suárez Sánchez",
     "email": "javiersuarsan@gmail.com",
