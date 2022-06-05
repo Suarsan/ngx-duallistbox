@@ -17,7 +17,7 @@ Try full demo  at **[ngx-duallistbox](www.javiersuarezsanchez.com/projects/ngx-d
 
 Install via npm
 
-    npm install @suarsan/duallistbox
+    npm install @suarsan/ngx-duallistbox
     
 #### Usage
 
