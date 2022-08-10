@@ -9,7 +9,7 @@ A full featured and customizable dual list box selector for Angular.
 
 ## Demo
 
-Try full demo  at **[ngx-duallistbox](https://javiersuarezsanchez.com/#/ngx-duallistbox)**
+Try full demo  at **[ngx-duallistbox](https://javiersuarezsanchez.com/ngx-duallistbox)**
 
 ## Usage
 
